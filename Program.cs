@@ -25,12 +25,13 @@ namespace KafkaProducer
             var i = 0;
             while (true)
             {
+                var randomNum = rand.Next(50, 100);
                 var purchaseEvent = new PurchaseEvent
                 {
                     Id = ++i,
                     TimeStamp = System.DateTime.Now,
-                    ItemPurchased = "Rand_Toy",
-                    Price = rand.Next(),
+                    ItemPurchased = $"Product{randomNum%5}",
+                    Price = randomNum,
 
                 };
                 // Construct the message to send (generic type must match what was used above when creating the producer)
